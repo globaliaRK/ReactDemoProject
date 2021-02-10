@@ -5,11 +5,12 @@ import Home from './component/Home'
 import Login from './component/Login'
 import Navbar from './component/Navbar'
 import Registration from './component/Registration'
+import Update from './component/Update'
 
 
 const routes = [
   {
-    path: '/',
+    path: '/home/:page',
     component: Home,
     exact: true,
   },
@@ -21,6 +22,11 @@ const routes = [
   {
     path: '/registration',
     component: Registration,
+    exact: true,
+  },
+  {
+    path: '/update/:id',
+    component: Update,
     exact: true,
   }
 ]
@@ -34,7 +40,7 @@ function App() {
         {routes.map((route, i) => (
           < Route key={i} path={route.path} component={route.component} exact={route.exact} />
         ))}
-        <Redirect path='/*' to="/" />
+        {/* <Redirect path='/*' to="/" /> */}
       </Switch>
     </Router>
   );
